@@ -20,7 +20,7 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/gonmolina/CCyVE_book  # Online location of your book
+  url: https://github.com/gonmolina/control2024  # Online location of your book
   # path_to_book: book  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
@@ -34,11 +34,11 @@ html:
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
 
-  baseurl: "https://gonmolina.github.io/CCyVE_book"
+  baseurl: "https://gonmolina.github.io/control2024"
 
   comments:
     utterances:
-      repo: "gonmolina/CCyVE_book"
+      repo: "gonmolina/control2024"
 
 execute:
   execute_notebooks: cache
