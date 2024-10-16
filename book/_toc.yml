@@ -49,11 +49,11 @@ parts:
 #   - file: sources/modulo5/problema_levitador
 #   - file: sources/modulo5/tipo1_lead
 #   - file: sources/modulo5/lead_lag_design
-# - caption: Control Moderno
-#   chapters:
-#   - file: sources/modulo_ve/polos_ceros_EE
-#   - file: sources/modulo_ve/formas_canonicas
-#   - file: sources/modulo_ve/transformacion_formas_canonicas
+- caption: Control Moderno
+  chapters:
+  - file: sources/modulo_ve/polos_ceros_EE
+  - file: sources/modulo_ve/formas_canonicas
+  - file: sources/modulo_ve/transformacion_formas_canonicas
 #   - file: sources/modulo_ve/ctrb_obsv
 #   - file: sources/modulo_ve/referencia
 #   - file: sources/modulo_ve/LSR
