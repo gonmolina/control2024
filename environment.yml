@@ -14,5 +14,6 @@ dependencies:
   - tornado
   - jupyter-book
   - jupytext
-  
+  - libsqlite 
+  - sqlite
   
