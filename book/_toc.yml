@@ -54,7 +54,7 @@ parts:
   - file: sources/modulo_ve/polos_ceros_EE
   - file: sources/modulo_ve/formas_canonicas
   - file: sources/modulo_ve/transformacion_formas_canonicas
-#   - file: sources/modulo_ve/ctrb_obsv
+  - file: sources/modulo_ve/ctrb_obsv
 #   - file: sources/modulo_ve/referencia
 #   - file: sources/modulo_ve/LSR
 #   - file: sources/modulo_ve/estimadores
