@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.16.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -40,7 +40,7 @@ Ac
 Antes de seguir, verificamos que los polos de $G$ sean los autovalores de $\mathbf {Ac}$
 
 ```{code-cell} ipython3
-print(G.pole())
+print(G.poles())
 print(np.linalg.eigvals(Ac))
 ```
 
@@ -71,16 +71,14 @@ Si $sys$ tiene los mismos polos, los mismos ceros y la misma ganancia en estado 
 Veamos los polos:
 
 ```{code-cell} ipython3
-sys_c.pole()
+sys_c.poles()
 ```
 
 Ahora los ceros:
 
 ```{code-cell} ipython3
-sys_c.zero()
+sys_c.zeros()
 ```
-
-+++ {"tags": []}
 
 Y la ganancia en estado estacionario en particular (o en cualquier frecuencia en general):
 
@@ -112,11 +110,11 @@ sys_o=ctrl.ss(Ao,Bo,Co,Do)
 ```
 
 ```{code-cell} ipython3
-sys_o.pole()
+sys_o.poles()
 ```
 
 ```{code-cell} ipython3
-sys_o.zero()
+sys_o.zeros()
 ```
 
 ```{code-cell} ipython3
@@ -201,7 +199,6 @@ Finalmente obtengamos la forma canónica modal:
 ```{code-cell} ipython3
 sys2_m, Tm =ctrl.canonical_form(sys2, 'modal')
 sys2_m.A
-
 ```
 
 ```{note}
@@ -264,25 +261,26 @@ Ahora supongamos que queremos un nuevo sistema que:
 Para eso vamos a usar una función que se llama `connect`. Esta utiliza sistemas en espacio de estados, entonces hacemos:
 
 ```{code-cell} ipython3
-sys1 = ctrl.ss(G1)
-sys2= ctrl.ss(G2)
+sys1 = ctrl.ss(G1, inputs=['u1'], outputs=['y1'], name='G1')
+sys2= ctrl.ss(G2, inputs=['u2'], outputs=['y2'], name='G2')
 ```
 
 Y luego realizamos las conexiones:
 
 ```{code-cell} ipython3
-sys_c = ctrl.connect(ctrl.append(sys1, sys2),[[2,1]],[1],[2])
+sys_c = ctrl.interconnect([sys1, sys2], 
+                          connections=[['G2.u2', 'G1.y1']], inplist=['G1.u1'], outlist=['G2.y2'])
 sys_c
 ```
 
 Analizamos  los polos y ceros del sistema ya interconectado
 
 ```{code-cell} ipython3
-sys_c.pole()
+sys_c.poles()
 ```
 
 ```{code-cell} ipython3
-sys_c.zero()
+sys_c.zeros()
 ```
 
 Vemos que el sistema conserva los mismos polos y los mismos ceros que el original, lo cual era de esperarse, ya que su función transferencia sería $G1.G2$
@@ -320,7 +318,8 @@ Un sistema observable necesita tener evidencia de lo que sucede con cada modo en
 Ahora hagamos la conexión al revés (primero $G1$ y luego $G2$):
 
 ```{code-cell} ipython3
-sys_o = ctrl.connect(ctrl.append(sys1, sys2),[[1,2]],[2],[1])
+sys_o = ctrl.interconnect([sys1, sys2], 
+                          connections=[['G1.u1', 'G2.y2']], inplist=['G2.u2'], outlist=['G1.y1'])
 sys_o
 ```
 
@@ -381,3 +380,6 @@ Podemos ver ahora que la matriz $\mathbf C$ no tiene ningún valor igual a 0, po
 La controlabilidad y la observabilidad pueden ser evaluadas con el sistema en su forma **canónica modal** analizando las relaciones  de la matrices $\mathbf{B}$ y $\mathbf{C}$ con la matriz $\mathbf{A}$.
 ```
 
+```{code-cell} ipython3
+
+```
