@@ -14,6 +14,6 @@ dependencies:
   - tornado
   - jupyter-book
   - jupytext
-  - libsqlite == 3.37.*
+  - libsqlite == 3.46
   
   
