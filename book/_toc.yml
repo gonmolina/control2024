@@ -56,8 +56,8 @@ parts:
   - file: sources/modulo_ve/transformacion_formas_canonicas
   - file: sources/modulo_ve/ctrb_obsv
 #   - file: sources/modulo_ve/referencia
-#   - file: sources/modulo_ve/LSR
-#   - file: sources/modulo_ve/estimadores
+  - file: sources/modulo_ve/LSR
+  - file: sources/modulo_ve/estimadores
 #   - file: sources/modulo_ve/ejemplo_A_ve_motor_cc
-#   - file: sources/modulo_ve/ejemplo_B_ve_atitud_satelite
-#   - file: sources/modulo_ve/ejemplo_C_ve_pendulo_invertido
+  # - file: sources/modulo_ve/ejemplo_B_ve_atitud_satelite
+  - file: sources/modulo_ve/ejemplo_C_ve_pendulo_invertido
