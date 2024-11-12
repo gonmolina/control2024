@@ -61,3 +61,4 @@ parts:
 #   - file: sources/modulo_ve/ejemplo_A_ve_motor_cc
   # - file: sources/modulo_ve/ejemplo_B_ve_atitud_satelite
   - file: sources/modulo_ve/ejemplo_C_ve_pendulo_invertido
+  - file: sources/modulo_ve/apunte_control_integral

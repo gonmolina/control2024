@@ -1,4 +1,4 @@
-    ---
+---
 jupytext:
   formats: ipynb,md:myst
   text_representation:
@@ -11,8 +11,6 @@ kernelspec:
   language: python
   name: python3
 ---
-
-+++ {"id": "-yaDGL7biDMS"}
 
 # Diseño de estimadores
 
